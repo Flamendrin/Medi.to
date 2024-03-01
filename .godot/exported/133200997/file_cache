@@ -1,0 +1,8 @@
+res://Assets/main_theme.tres::e3ea3ab0b219858581b728d80d710fb9::1708032808::res://.godot/exported/133200997/export-5b792f3b2ec8da4338eab6e1d78ec585-main_theme.res
+res://Components/Audio_Vizualizer/Audio_Player.tscn::1568342e8e54232bd0f4e5989bf8980f::1708029076::res://.godot/exported/133200997/export-58dcfe3cfa7715989b3e9014801874e0-Audio_Player.scn
+res://Components/Command_Logic/command.tscn::239c13e6e5b86a0210b62910d585293e::1708034156::res://.godot/exported/133200997/export-f33eb9bc46962ca4e5ea29e71d127ba4-command.scn
+res://Components/Command_Logic/command_group.tscn::46b4fa7c4444d916c77bac0ff2b402ab::1708034156::res://.godot/exported/133200997/export-306b4b2d6c5acfde2eb3149430c66997-command_group.scn
+res://Components/Command_Logic/command_module.tscn::e056abf1f75ce65e62478e9c5acbb7be::1708034156::res://.godot/exported/133200997/export-a7279e0a2737cb318278dcbe216f0ee0-command_module.scn
+res://Environments/Forest/forest.tres::2082dacd8e9c0092231151a71c3ec638::1707840922::res://.godot/exported/133200997/export-251139890aef07ac82c810e74b395d07-forest.res
+res://Scenes/Console_Window/console_window.tscn::a0b13b407b3d1607c5b535a0c6f303bd::1708034156::res://.godot/exported/133200997/export-a05ffeae3a0a1bb4ee6888be669123df-console_window.scn
+res://default_bus_layout.tres::6fdbc30278e75cd12ee7ad0169ca6fa9::1708032500::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Medito_Environment" load_steps=6 format=3 uid="uid://lay14chlbps7"]
+
+[ext_resource type="Script" path="res://Components/Environment_Logic/environment.gd" id="1_hr6u7"]
+[ext_resource type="Script" path="res://Components/Environment_Logic/rtpc_variable.gd" id="1_v1gbj"]
+
+[sub_resource type="Resource" id="Resource_dmfqu"]
+script = ExtResource("1_v1gbj")
+Variable_Name = "Bird Occupation"
+RTPC_ID = 0
+value = 25
+
+[sub_resource type="Resource" id="Resource_lndid"]
+script = ExtResource("1_v1gbj")
+Variable_Name = "Bird Volume"
+RTPC_ID = 0
+value = 30
+
+[sub_resource type="Resource" id="Resource_trfcw"]
+script = ExtResource("1_v1gbj")
+Variable_Name = "Tree Volume"
+RTPC_ID = 0
+value = 50
+
+[resource]
+script = ExtResource("1_hr6u7")
+Environment_Name = "Forest"
+RTPC_Variables = Array[ExtResource("1_v1gbj")]([SubResource("Resource_dmfqu"), SubResource("Resource_lndid"), SubResource("Resource_trfcw")])

@@ -1,0 +1,14 @@
+Command
+RichTextLabel
+ColorRect
+Command_Module
+PanelContainer
+Label
+HBoxContainer
+Panel
+AudioStreamPlayer
+OvaniPlayer
+VBoxContainer
+SubViewport
+SubViewportContainer
+CenterContainer

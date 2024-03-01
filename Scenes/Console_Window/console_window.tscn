@@ -1,0 +1,345 @@
+[gd_scene load_steps=11 format=3 uid="uid://dnjok4er223i6"]
+
+[ext_resource type="Theme" uid="uid://qwjil1uujq5u" path="res://Assets/main_theme.tres" id="1_pnjul"]
+[ext_resource type="Script" path="res://Scenes/Console_Window/console_window.gd" id="2_e5yqs"]
+[ext_resource type="Script" path="res://Components/Command_Logic/command_module.gd" id="3_47ltf"]
+[ext_resource type="Script" path="res://Scenes/Console_Window/Env_Window.gd" id="3_in6kf"]
+[ext_resource type="Script" path="res://Components/Command_Logic/command.gd" id="4_2lrdu"]
+[ext_resource type="PackedScene" uid="uid://7jssm502p45p" path="res://Components/Audio_Vizualizer/Audio_Player.tscn" id="4_qjf7i"]
+[ext_resource type="Script" path="res://Scenes/Console_Window/MP3.gd" id="4_tqewf"]
+[ext_resource type="Script" path="res://Scenes/Console_Window/console_handler.gd" id="6_a2v2f"]
+[ext_resource type="Shader" path="res://Assets/Shaders/CRT.gdshader" id="8_q50kn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hp4y"]
+shader = ExtResource("8_q50kn")
+shader_parameter/grain_amount = 0.05
+shader_parameter/grain_size = 1.0
+
+[node name="Console_Window" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_pnjul")
+script = ExtResource("2_e5yqs")
+welcome_msg = "                    __           __             
+ /'\\_/`\\           /\\ \\  __     /\\ \\__          
+/\\      \\     __   \\_\\ \\/\\_\\    \\ \\ ,_\\   ___   
+\\ \\ \\__\\ \\  /'__`\\ /'_` \\/\\ \\    \\ \\ \\/  / __`\\ 
+ \\ \\ \\_/\\ \\/\\  __//\\ \\L\\ \\ \\ \\  __\\ \\ \\_/\\ \\L\\ \\
+  \\ \\_\\\\ \\_\\ \\____\\ \\___,_\\ \\_\\/\\_\\\\ \\__\\ \\____/
+   \\/_/ \\/_/\\/____/\\/__,_ /\\/_/\\/_/ \\/__/\\/___/ 
+                                                
+                                                
+///////////// Welcome to Medi.to /////////////
+
+This is a focus based media player for developers, writers and everyone else.
+
+To start with the usage of this app use \"[i]help[/i]\" command to reveal all the options you have.
+
+Good luck with your work and enjoy your stay.
+
+CleverCHAOS
+
+
+"
+credits = "///////////////////////////////////////////////
+
+Credits [b]MEDI.TO[/b]
+
+Huge thanks to [url=https://www.youtube.com/@spectropolixdev9141]Spectropolix Dev[/url] for his console tutorials.
+
+Special thanks to Nolkaloid and others in the [url=https://github.com/Nolkaloid/godot-yt-dlp]godot-yt-dlp[/url] project.
+
+Another big thank you to [url=https://www.youtube.com/@phantasydev5569]Phantasy Dev[/url] for his awesome audio visualizer.
+
+Not to forget mentioning Gianclgar and Stoxis for making amazing [url=https://github.com/Stoxis/GDScriptAudioImport-Godot4]audio importing[/url] solution for .wav files.
+
+And for last but not least, huge thanks to all of you who use MEDI.TO!
+This is just a small passion project to bring something totally useless onto this vast space of the world of FOSS.
+
+///////////////////////////////////////////////"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Console_Display" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Console_Display"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Display" type="RichTextLabel" parent="HBoxContainer/Console_Display/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true
+
+[node name="StatusBar" type="RichTextLabel" parent="HBoxContainer/Console_Display"]
+visible = false
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_following = true
+
+[node name="InputBar" type="LineEdit" parent="HBoxContainer/Console_Display"]
+layout_mode = 2
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 0.286275)
+placeholder_text = "Input..."
+caret_blink = true
+
+[node name="Env_Window" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.45
+script = ExtResource("3_in6kf")
+
+[node name="Info" type="RichTextLabel" parent="HBoxContainer/Env_Window"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+bbcode_enabled = true
+text = "Environment: Forest
+----
+Volume: ||||||||||---------"
+fit_content = true
+scroll_following = true
+
+[node name="Environment_Info" type="ScrollContainer" parent="HBoxContainer/Env_Window"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Display" type="RichTextLabel" parent="HBoxContainer/Env_Window/Environment_Info"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Environment Settings
+----
+
+
+Bird Occupation [0]:
+
+||||||--------------
+
+Bitd Volume [1]:
+
+||||||||||----------
+
+Trees Volume [2]:
+
+|||-----------------"
+fit_content = true
+
+[node name="MP3" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.45
+script = ExtResource("4_tqewf")
+
+[node name="Info" type="RichTextLabel" parent="HBoxContainer/MP3"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+bbcode_enabled = true
+text = "MP3 Player
+----
+Volume: ||||||||||---------"
+fit_content = true
+scroll_following = true
+
+[node name="Environment_Info" type="ScrollContainer" parent="HBoxContainer/MP3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Display" type="RichTextLabel" parent="HBoxContainer/MP3/Environment_Info"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Current song:
+----
+[Random song best top!]
+
+Queue
+----
+- Random Song [0]
+- Ranndomm Song [1]
+- ...
+- ..."
+fit_content = true
+
+[node name="TimeStamp" type="PanelContainer" parent="HBoxContainer/MP3"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MP3/TimeStamp"]
+layout_mode = 2
+
+[node name="Display" type="RichTextLabel" parent="HBoxContainer/MP3/TimeStamp/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "--------------------"
+fit_content = true
+
+[node name="Time" type="RichTextLabel" parent="HBoxContainer/MP3/TimeStamp/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
+text = "00:00"
+
+[node name="Panel" type="Panel" parent="HBoxContainer/MP3"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer/MP3/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -65.0
+offset_right = 125.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/MP3/Panel/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(250, 130)
+render_target_update_mode = 4
+
+[node name="Audio_Player" parent="HBoxContainer/MP3/Panel/SubViewportContainer/SubViewport" instance=ExtResource("4_qjf7i")]
+
+[node name="Console_Handler" type="Node" parent="."]
+script = ExtResource("6_a2v2f")
+
+[node name="Console" type="Node" parent="Console_Handler"]
+script = ExtResource("3_47ltf")
+
+[node name="help" type="Node" parent="Console_Handler/Console"]
+script = ExtResource("4_2lrdu")
+help = "Displays information about usage of this console and all available commands."
+
+[node name="cls" type="Node" parent="Console_Handler/Console"]
+script = ExtResource("4_2lrdu")
+help = "Clears the messages from console window."
+
+[node name="echo" type="Node" parent="Console_Handler/Console"]
+script = ExtResource("4_2lrdu")
+argument_names = Array[String](["message"])
+argument_types = Array[int]([2])
+help = "Echoes the message to the console."
+
+[node name="wlcm" type="Node" parent="Console_Handler/Console"]
+script = ExtResource("4_2lrdu")
+help = "Displays welcome message."
+
+[node name="credits" type="Node" parent="Console_Handler/Console"]
+script = ExtResource("4_2lrdu")
+help = "Display all the awesome people who are part of this project in one or the other way!"
+
+[node name="Audio" type="Node" parent="Console_Handler"]
+script = ExtResource("3_47ltf")
+
+[node name="stop" type="Node" parent="Console_Handler/Audio"]
+script = ExtResource("4_2lrdu")
+help = "Stops and closes the audio panel, while cleaning all cached audio files."
+
+[node name="pause" type="Node" parent="Console_Handler/Audio"]
+script = ExtResource("4_2lrdu")
+help = "Pauses the audio."
+
+[node name="resume" type="Node" parent="Console_Handler/Audio"]
+script = ExtResource("4_2lrdu")
+help = "Resumes the audio."
+
+[node name="volume" type="Node" parent="Console_Handler/Audio"]
+script = ExtResource("4_2lrdu")
+argument_names = Array[String](["volume"])
+argument_types = Array[int]([1])
+help = "Set the volume to value between 0 - 100."
+
+[node name="v" type="Node" parent="Console_Handler/Audio"]
+script = ExtResource("4_2lrdu")
+argument_names = Array[String](["volume"])
+argument_types = Array[int]([1])
+help = "Alias for volume."
+
+[node name="skip" type="Node" parent="Console_Handler/Audio"]
+script = ExtResource("4_2lrdu")
+help = "Skips current song in Media Player."
+
+[node name="url" type="Node" parent="Console_Handler/Audio"]
+script = ExtResource("4_2lrdu")
+argument_names = Array[String](["url"])
+argument_types = Array[int]([2])
+help = "Downloads and plays audio from youtube. Audio files are stored in user file on C drive."
+
+[node name="download" type="Node" parent="Console_Handler/Audio"]
+script = ExtResource("4_2lrdu")
+argument_names = Array[String](["url"])
+argument_types = Array[int]([2])
+help = "Downloads given url to download folder. Default folder is your Downloads."
+
+[node name="set_download_folder" type="Node" parent="Console_Handler/Audio"]
+script = ExtResource("4_2lrdu")
+argument_names = Array[String](["folder_path"])
+argument_types = Array[int]([2])
+help = "Sets your folder for downloading audio from urls."
+
+[node name="Environment" type="Node" parent="Console_Handler"]
+script = ExtResource("3_47ltf")
+
+[node name="env" type="Node" parent="Console_Handler/Environment"]
+script = ExtResource("4_2lrdu")
+argument_names = Array[String](["envrironment"])
+argument_types = Array[int]([2])
+help = "Enteres selected environment. -> [env <selected environment>]
+
+		Chose from:
+
+			- forest
+			- space
+			- campfire"
+
+[node name="set" type="Node" parent="Console_Handler/Environment"]
+script = ExtResource("4_2lrdu")
+argument_names = Array[String](["settings_index", "volume"])
+argument_types = Array[int]([1, 1])
+help = "Sets the volume of chosen index to value between 0 - 100."
+
+[node name="MP3" type="Node" parent="Console_Handler"]
+script = ExtResource("3_47ltf")
+
+[node name="list" type="Node" parent="Console_Handler/MP3"]
+script = ExtResource("4_2lrdu")
+
+[node name="play" type="Node" parent="Console_Handler/MP3"]
+script = ExtResource("4_2lrdu")
+argument_names = Array[String](["audio_name"])
+argument_types = Array[int]([2])
+help = "Playes selected audio file in local MP3 Player."
+
+[node name="Rest_Place" type="Node" parent="Console_Handler"]
+script = ExtResource("3_47ltf")
+
+[node name="MP3_Player_Device" type="AudioStreamPlayer" parent="."]
+
+[node name="Shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_1hp4y")
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)

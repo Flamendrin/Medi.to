@@ -1,0 +1,9 @@
+res://default_bus_layout.tres
+res://Scenes/Console_Window/console_window.tscn
+res://Assets/main_theme.tres
+res://Assets/Shaders/CRT.gdshader
+res://Components/Command_Logic/command_module.tscn
+res://Components/Command_Logic/command_group.tscn
+res://Components/Command_Logic/command.tscn
+res://Components/Command_Logic/TreeStringRegistry.gd
+res://Scenes/Console_Window/console_window.gd

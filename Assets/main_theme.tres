@@ -1,0 +1,87 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://qwjil1uujq5u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21n5u"]
+content_margin_left = 5.0
+content_margin_right = 3.0
+content_margin_bottom = 2.0
+bg_color = Color(0.0666667, 0.133333, 0.0823529, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.737255, 0.423529, 0.345098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074v5"]
+bg_color = Color(0.0666667, 0.133333, 0.0823529, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.737255, 0.423529, 0.345098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g508a"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.0666667, 0.133333, 0.0823529, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwq0y"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.0666667, 0.133333, 0.0823529, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.737255, 0.423529, 0.345098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eyw4f"]
+bg_color = Color(0.737255, 0.423529, 0.345098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ruxb"]
+bg_color = Color(0.737255, 0.423529, 0.345098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1bjr"]
+bg_color = Color(0.737255, 0.423529, 0.345098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7534"]
+bg_color = Color(0.278431, 0.133333, 0.0980392, 0.745098)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.278431, 0.133333, 0.0980392, 0.745098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mltem"]
+bg_color = Color(0.278431, 0.133333, 0.0980392, 0.745098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1w03"]
+bg_color = Color(0.737255, 0.423529, 0.345098, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_y5tgc"]
+font_names = PackedStringArray("Consolas")
+
+[resource]
+default_font = SubResource("SystemFont_y5tgc")
+default_font_size = 20
+LineEdit/colors/caret_color = Color(0.737255, 0.423529, 0.345098, 1)
+LineEdit/colors/font_color = Color(0.737255, 0.423529, 0.345098, 1)
+LineEdit/colors/selection_color = Color(0.737255, 0.423529, 0.345098, 0.654902)
+LineEdit/styles/focus = SubResource("StyleBoxFlat_21n5u")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_21n5u")
+Panel/styles/panel = SubResource("StyleBoxFlat_074v5")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_g508a")
+RichTextLabel/colors/default_color = Color(0.737255, 0.423529, 0.345098, 1)
+RichTextLabel/colors/font_outline_color = Color(1, 1, 1, 0)
+RichTextLabel/colors/selection_color = Color(0.101961, 0.101961, 1, 0)
+RichTextLabel/styles/focus = SubResource("StyleBoxFlat_wwq0y")
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_wwq0y")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_eyw4f")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_8ruxb")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_a1bjr")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_w7534")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_mltem")
+VSlider/styles/grabber_area = SubResource("StyleBoxFlat_w1w03")
